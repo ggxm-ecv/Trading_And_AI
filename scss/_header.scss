@@ -18,8 +18,22 @@
 }
 
 .header__switch-color-mode {
+  cursor: pointer;
   position: relative;
   width: 64px;
   overflow: hidden;
   border-left: 2px solid var(--color-main);
+  svg {
+    position: absolute;
+    top: 250%;
+    left: 50%;
+    transform: translate(-50%,-50%); // TODO: sass prefixer
+    width: 32px;
+    height: 32px;
+    fill: var(--color-main);
+    transition: all 300ms ease-out;
+    &.active {
+      top: 50%;
+    }
+  }
 }

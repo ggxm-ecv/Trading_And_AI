@@ -12,6 +12,7 @@ body {
   padding: 16px;
   background-color: var(--color-second);
   color: var(--color-main);
+  transition: all 300ms ease-out;
 }
 
 main {
