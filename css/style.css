@@ -3,6 +3,86 @@
 *********************/
 /* Global */
 /*********************
+// Fonts
+*********************/
+/* Font Family - Product Sans */
+@font-face {
+  font-family: "Product Sans";
+  src: url("../font/ProductSans-Regular.eot");
+  src: url("../font/ProductSans-Regular.eot?#iefix") format("embedded-opentype"), url("../font/ProductSans-Regular.woff2") format("woff2"), url("../font/ProductSans-Regular.woff") format("woff"), url("../font/ProductSans-Regular.ttf") format("truetype"), url("../font/ProductSans-Regular.svg#ProductSans-Regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Product Sans";
+  src: url("../font/ProductSans-Italic.eot");
+  src: url("../font/ProductSans-Italic.eot?#iefix") format("embedded-opentype"), url("../font/ProductSans-Italic.woff2") format("woff2"), url("../font/ProductSans-Italic.woff") format("woff"), url("../font/ProductSans-Italic.ttf") format("truetype"), url("../font/ProductSans-Italic.svg#ProductSans-Italic") format("svg");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Product Sans";
+  src: url("../font/ProductSans-Bold.eot");
+  src: url("../font/ProductSans-Bold.eot?#iefix") format("embedded-opentype"), url("../font/ProductSans-Bold.woff2") format("woff2"), url("../font/ProductSans-Bold.woff") format("woff"), url("../font/ProductSans-Bold.ttf") format("truetype"), url("../font/ProductSans-Bold.svg#ProductSans-Bold") format("svg");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Product Sans";
+  src: url("../font/ProductSans-BoldItalic.eot");
+  src: url("../font/ProductSans-BoldItalic.eot?#iefix") format("embedded-opentype"), url("../font/ProductSans-BoldItalic.woff2") format("woff2"), url("../font/ProductSans-BoldItalic.woff") format("woff"), url("../font/ProductSans-BoldItalic.ttf") format("truetype"), url("../font/ProductSans-BoldItalic.svg#ProductSans-BoldItalic") format("svg");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+/* Size Settings */
+:root {
+  font-size: 62.5%;
+  /* (62.5/100) * 16px = 10px */
+  --font-size--small: 1.4rem;
+  /* 14px */
+  --font-size--normal: 1.8rem;
+  /* 18px */
+  --font-size--large: 2.2rem;
+  /* 22px */
+  --line-height--small: calc(var(--font-size--small) * 1.5);
+  --line-height--normal: calc(var(--font-size--normal) * 1.5);
+  --line-height--large: calc(var(--font-size--large) * 1.5);
+}
+
+/* Global */
+body {
+  font-family: "Product Sans", Arial, sans-serif;
+  font-size: var(--font-size--normal);
+  line-height: var(--line-height--normal);
+}
+
+/* Heading Settings */
+.heading {
+  margin: 0;
+  font-family: "Product Sans", Arial, sans-serif;
+  font-weight: 700;
+}
+
+.h1 {
+  font-size: 4.8rem;
+  line-height: calc(4.8rem * 1.2);
+}
+
+.h2 {
+  font-size: 3.2rem;
+  line-height: calc(3.2rem * 1.2);
+}
+
+.h3 {
+  font-size: 2.4rem;
+  line-height: calc(2.4rem * 1.2);
+}
+
+/*********************
 // Colors
 *********************/
 :root {
@@ -15,6 +95,15 @@
   --color-second: #222;
 }
 
+/*********************
+// Helpers
+*********************/
+/*********************
+// Containers
+*********************/
+/*********************
+// Buttons
+*********************/
 /* Components */
 /*********************
 // Main
@@ -44,8 +133,23 @@ main {
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
+  height: 64px;
   border-bottom: 2px solid var(--color-main);
+}
+
+.header__title {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-right: 2px solid var(--color-main);
+}
+
+.header__switch-color-mode {
+  position: relative;
+  width: 64px;
+  overflow: hidden;
+  border-left: 2px solid var(--color-main);
 }
 
 /*# sourceMappingURL=style.css.map */
