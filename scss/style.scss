@@ -5,11 +5,13 @@
 /* Global */
 
 @import "font";
+@import "color";
 @import "helper";
 @import "container";
 @import "button";
 
 /* Components */
 
-//@import "header";
+@import "main";
+@import "header";
 //@import "footer";
