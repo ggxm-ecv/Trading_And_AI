@@ -9,10 +9,13 @@ body {
   height: 100vh;
   max-height: 100vh;
   overflow: hidden;
-  padding: 16px;
+  padding: 8px;
   background-color: var(--color-second);
   color: var(--color-main);
   transition: all 300ms ease-out;
+  @include md_up {
+    padding: 16px;
+  }
 }
 
 main {

@@ -12,28 +12,28 @@ $screen-lg-min: 1200px;
 /* Define media query */
 
 // Small devices
-@mixin sm {
+@mixin sm_up {
    @media (min-width: #{$screen-sm-min}) {
        @content;
    }
 }
 
 // Medium devices
-@mixin md {
+@mixin md_up {
    @media (min-width: #{$screen-md-min}) {
        @content;
    }
 }
 
 // Large devices
-@mixin lg {
+@mixin lg_up {
    @media (min-width: #{$screen-lg-min}) {
        @content;
    }
 }
 
 // Custom devices
-@mixin rwd($screen) {
+@mixin rwd_up($screen) {
    @media (min-width: $screen+'px') {
        @content;
    }
