@@ -5,11 +5,9 @@
 .header {
   display: grid;
   grid-template-columns: auto 1fr 48px;
-  height: 48px;
   border-bottom: 2px solid var(--color-main);
   @include md_up {
     grid-template-columns: auto 1fr 64px 64px;
-    height: 64px;
   }
 }
 
@@ -43,7 +41,9 @@
     transform: translate(-50%,-50%)
   ), webkit ms);
   max-width: 100%;
-  transition: all 300ms ease-out;
+  @include prefix((
+    transition: all 300ms ease-out
+  ), webkit ms);
   &.active {
     top: 50%;
   }
@@ -73,7 +73,9 @@
     width: 28px;
     height: 28px;
     fill: var(--color-main);
-    transition: all 300ms ease-out;
+    @include prefix((
+      transition: all 300ms ease-out
+    ), webkit ms);
     &.active {
       top: 50%;
     }
