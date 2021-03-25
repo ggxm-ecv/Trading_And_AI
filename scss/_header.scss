@@ -4,10 +4,10 @@
 
 .header {
   display: grid;
-  grid-template-columns: auto 1fr 48px;
+  grid-template-columns: auto 1fr 24px 48px;
   border-bottom: 2px solid var(--color-main);
   @include md_up {
-    grid-template-columns: auto 1fr 64px 64px;
+    grid-template-columns: auto 1fr 64px 32px 64px;
   }
 }
 
@@ -56,6 +56,60 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-right: 2px solid var(--color-main);
+}
+
+.header__nav {
+  z-index: 1;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.header__nav-up {
+  border-bottom: 1px solid var(--color-main);
+}
+
+.header__nav-down {
+  border-top: 1px solid var(--color-main);
+}
+
+.header__nav-arrows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.active {
+    cursor: pointer;
+    svg {
+      opacity: 1;
+    }
+  }
+}
+
+.header__nav-arrows svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--color-main);
+  opacity: 0.2;
+  @include prefix((
+    transition: all 150ms ease-out
+  ), webkit ms);
+  @include md_up {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.header__nav-up svg {
+  @include prefix((
+    transform: rotate(-90deg)
+  ), webkit ms);
+}
+
+.header__nav-down svg {
+  @include prefix((
+    transform: rotate(90deg)
+  ), webkit ms);
 }
 
 .header__switch-color-mode {

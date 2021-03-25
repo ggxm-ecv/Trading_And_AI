@@ -12,6 +12,48 @@ document.querySelector('[data-switch-color]').addEventListener('click', function
 
 });
 
+
+/********* Slider steps *********/
+
+let scrollPos = 0;
+let stepHeight = document.querySelector('.step').offsetHeight;
+let nbOfStep = document.querySelectorAll('.steps > .step').length;
+let targetLastStep = stepHeight * (nbOfStep - 1);
+
+document.querySelector('.steps').addEventListener('scroll', function() {
+
+  let newScrollPos = document.querySelector('.steps').scrollTop;
+
+  // Update Header Nav Up
+  if (newScrollPos > 0) {
+    document.querySelector('.header__nav-up').classList.add('active');
+  } else {
+    document.querySelector('.header__nav-up').classList.remove('active');
+  }
+  // Update Header Nav Down
+  if (newScrollPos >= targetLastStep) {
+    document.querySelector('.header__nav-down').classList.remove('active');
+  } else {
+    document.querySelector('.header__nav-down').classList.add('active');
+  }
+
+  if (newScrollPos > scrollPos) {
+    // On scroll down
+
+
+  } else {
+    // On scroll up
+
+
+  }
+
+  // saves the new position for iteration.
+	scrollPos = newScrollPos;
+});
+
+
+
+
 /********* Step 1 : Experimental Pattern *********/
 
 // Generate Items inside Pattern
@@ -45,22 +87,3 @@ function insertItemsToPattern(nbItems) {
 }
 
 insertItemsToPattern(nbItems);
-
-// Items Animation
-
-// (function() {
-//
-//     let mX, mY, distance,
-//         $element  = $('.step-1__content-wrap .heading');
-//
-//     function calculateDistance(elem, mouseX, mouseY) {
-//         return Math.floor(Math.sqrt(Math.pow(mouseX - (elem.offset().left+(elem.width()/2)), 2) + Math.pow(mouseY - (elem.offset().top+(elem.height()/2)), 2)));
-//     }
-//
-//     $(document).mousemove(function(e) {
-//         mX = e.pageX;
-//         mY = e.pageY;
-//         distance = calculateDistance($element, mX, mY);
-//     });
-//
-// })();

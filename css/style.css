@@ -209,17 +209,21 @@ main {
   }
 }
 
+.main-content {
+  position: relative;
+}
+
 /*********************
 // Header
 *********************/
 .header {
   display: grid;
-  grid-template-columns: auto 1fr 48px;
+  grid-template-columns: auto 1fr 24px 48px;
   border-bottom: 2px solid var(--color-main);
 }
 @media (min-width: 900px) {
   .header {
-    grid-template-columns: auto 1fr 64px 64px;
+    grid-template-columns: auto 1fr 64px 32px 64px;
   }
 }
 
@@ -270,6 +274,62 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-right: 2px solid var(--color-main);
+}
+
+.header__nav {
+  z-index: 1;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.header__nav-up {
+  border-bottom: 1px solid var(--color-main);
+}
+
+.header__nav-down {
+  border-top: 1px solid var(--color-main);
+}
+
+.header__nav-arrows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header__nav-arrows.active {
+  cursor: pointer;
+}
+.header__nav-arrows.active svg {
+  opacity: 1;
+}
+
+.header__nav-arrows svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--color-main);
+  opacity: 0.2;
+  -webkit-transition: all 150ms ease-out;
+  -ms-transition: all 150ms ease-out;
+  transition: all 150ms ease-out;
+}
+@media (min-width: 900px) {
+  .header__nav-arrows svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.header__nav-up svg {
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.header__nav-down svg {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .header__switch-color-mode {
@@ -308,6 +368,10 @@ main {
 .steps {
   position: relative;
   overflow: auto;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
 }
 .steps::-webkit-scrollbar {
   display: none;
@@ -320,65 +384,8 @@ main {
   height: 100%;
   max-height: 100%;
 }
-.step:not(:first-child) {
-  border-top: 2px solid var(--color-main);
-}
-
-/********* Steps Nav *********/
-.steps__nav {
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  width: 48px;
-  height: 96px;
-  border-left: 2px solid var(--color-main);
+.step:not(:last-of-type) {
   border-bottom: 2px solid var(--color-main);
-}
-@media (min-width: 900px) {
-  .steps__nav {
-    width: 64px;
-    height: 128px;
-  }
-}
-
-.steps__nav-up {
-  border-bottom: 1px solid var(--color-main);
-}
-
-.steps__nav-down {
-  border-top: 1px solid var(--color-main);
-}
-
-.steps__nav-arrows {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.steps__nav-arrows svg {
-  width: 28px;
-  height: 28px;
-}
-@media (min-width: 900px) {
-  .steps__nav-arrows svg {
-    width: 32px;
-    height: 32px;
-  }
-}
-
-.steps__nav-up svg {
-  -webkit-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-
-.steps__nav-down svg {
-  -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
 }
 
 /********* Step 1 *********/
