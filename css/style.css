@@ -137,55 +137,36 @@ body {
 *********************/
 .btn {
   display: inline-block;
-  color: var(--color-main);
   text-decoration: none;
   -webkit-transition: all 300ms ease-in;
   -ms-transition: all 300ms ease-in;
   transition: all 300ms ease-in;
 }
 
-.btn-third {
+.btn-main {
   position: relative;
   padding: 8px 16px;
   border: 1px solid var(--color-main);
+  color: var(--color-second);
 }
-.btn-third svg {
-  position: absolute;
-  top: 50%;
-  right: -16px;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
-  fill: var(--color-main);
-  opacity: 0;
-  -webkit-transition: all 300ms ease-in;
-  -ms-transition: all 300ms ease-in;
-  transition: all 300ms ease-in;
-}
-.btn-third::before {
+.btn-main::before {
   content: "";
   z-index: -1;
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
-  width: 0;
+  width: 100%;
   height: 100%;
   background-color: var(--color-main);
   -webkit-transition: all 300ms ease-in;
   -ms-transition: all 300ms ease-in;
   transition: all 300ms ease-in;
 }
-.btn-third:hover {
-  color: var(--color-second);
+.btn-main:hover {
+  color: var(--color-main);
 }
-.btn-third:hover svg {
-  right: -24px;
-  opacity: 1;
-}
-.btn-third:hover::before {
-  width: 100%;
+.btn-main:hover::before {
+  height: 0;
 }
 
 /* Components */
@@ -325,8 +306,8 @@ main {
 // Steps
 *********************/
 .steps {
+  position: relative;
   overflow: auto;
-  scroll-snap-type: y mandatory;
 }
 .steps::-webkit-scrollbar {
   display: none;
@@ -338,10 +319,66 @@ main {
   max-width: 100%;
   height: 100%;
   max-height: 100%;
-  scroll-snap-align: start;
 }
 .step:not(:first-child) {
   border-top: 2px solid var(--color-main);
+}
+
+/********* Steps Nav *********/
+.steps__nav {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  width: 48px;
+  height: 96px;
+  border-left: 2px solid var(--color-main);
+  border-bottom: 2px solid var(--color-main);
+}
+@media (min-width: 900px) {
+  .steps__nav {
+    width: 64px;
+    height: 128px;
+  }
+}
+
+.steps__nav-up {
+  border-bottom: 1px solid var(--color-main);
+}
+
+.steps__nav-down {
+  border-top: 1px solid var(--color-main);
+}
+
+.steps__nav-arrows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.steps__nav-arrows svg {
+  width: 28px;
+  height: 28px;
+}
+@media (min-width: 900px) {
+  .steps__nav-arrows svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.steps__nav-up svg {
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.steps__nav-down svg {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 /********* Step 1 *********/
@@ -386,6 +423,7 @@ main {
 }
 
 .step-1__pattern {
+  overflow: hidden;
   padding: 16px;
   border-top: 1px solid var(--color-main);
 }
