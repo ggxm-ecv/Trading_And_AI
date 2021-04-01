@@ -13,6 +13,17 @@ document.querySelector('[data-switch-color]').addEventListener('click', function
 });
 
 
+/********* Main Nav *********/
+
+document.querySelector('.header__nav-down').addEventListener('click', event => {
+
+});
+
+document.querySelector('.header__nav-up').addEventListener('click', event => {
+
+});
+
+
 /********* Slider steps *********/
 
 let scrollPos = 0;
