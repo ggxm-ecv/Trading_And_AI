@@ -3,8 +3,11 @@
 *********************/
 
 .btn {
+  cursor: pointer;
+  outline: none;
   display: inline-block;
   text-decoration: none;
+  background-color: transparent;
   @include prefix((
     transition: all 300ms ease-in
   ), webkit ms);

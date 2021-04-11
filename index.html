@@ -23,7 +23,7 @@
   <meta name="theme-color" content="#FFFAF1">
 </head>
 
-<body>
+<body class="dark-mode">
 
   <main>
     <header class="header">
@@ -41,18 +41,18 @@
         <li class="header__summary-item">Sources</li>
       </ul>
       <div class="header__step">
-        1/9
+        <span class="header__step-current">1</span>/9
       </div>
       <div class="header__nav">
-        <div class="header__nav-arrows header__nav-up">
+        <div data-step-prev class="header__nav-arrows header__nav-up">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="arrow-forward"><rect width="24" height="24" transform="rotate(-90 12 12)" opacity="0"/><path d="M5 13h11.86l-3.63 4.36a1 1 0 0 0 1.54 1.28l5-6a1.19 1.19 0 0 0 .09-.15c0-.05.05-.08.07-.13A1 1 0 0 0 20 12a1 1 0 0 0-.07-.36c0-.05-.05-.08-.07-.13a1.19 1.19 0 0 0-.09-.15l-5-6A1 1 0 0 0 14 5a1 1 0 0 0-.64.23 1 1 0 0 0-.13 1.41L16.86 11H5a1 1 0 0 0 0 2z"/></g></g></svg>
         </div>
-        <div class="header__nav-arrows header__nav-down active">
+        <div data-step-next class="header__nav-arrows header__nav-down active">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="arrow-forward"><rect width="24" height="24" transform="rotate(-90 12 12)" opacity="0"/><path d="M5 13h11.86l-3.63 4.36a1 1 0 0 0 1.54 1.28l5-6a1.19 1.19 0 0 0 .09-.15c0-.05.05-.08.07-.13A1 1 0 0 0 20 12a1 1 0 0 0-.07-.36c0-.05-.05-.08-.07-.13a1.19 1.19 0 0 0-.09-.15l-5-6A1 1 0 0 0 14 5a1 1 0 0 0-.64.23 1 1 0 0 0-.13 1.41L16.86 11H5a1 1 0 0 0 0 2z"/></g></g></svg>
         </div>
       </div>
       <div class="header__switch-color-mode" data-switch-color>
-        <svg data-switch-color-svg-sun class="active switch-color-mode__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <svg data-switch-color-svg-sun class="switch-color-mode__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <g data-name="Layer 2">
             <g data-name="sun">
               <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"/>
@@ -68,7 +68,7 @@
             </g>
           </g>
         </svg>
-        <svg data-switch-color-svg-moon class="switch-color-mode__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <svg data-switch-color-svg-moon class="switch-color-mode__svg active" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <g data-name="Layer 2">
             <g data-name="moon">
               <rect width="24" height="24" opacity="0"/>
@@ -88,10 +88,10 @@
             <div class="step-1__content-wrap">
               <h1 class="heading h1">Bienvenue</h1>
               <p class="step-1__content-txt">Ensemble, découvrons les différents enjeux de l'Intelligence Artificielle dans le monde du Trading.</p>
-              <a class="step-1__content-btn btn btn-main" href="#">
+              <button data-step-next class="step-1__content-btn btn btn-main">
                 Commencer
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="diagonal-arrow-right-down"><rect width="24" height="24" transform="rotate(-90 12 12)" opacity="0"/><path d="M17 8a1 1 0 0 0-1 1v5.59l-8.29-8.3a1 1 0 0 0-1.42 1.42l8.3 8.29H9a1 1 0 0 0 0 2h8a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1z"/></g></g></svg>
-              </a>
+              </button>
             </div>
           </div>
           <div class="step-1__pattern">

@@ -59,7 +59,7 @@
 }
 
 /* Global */
-body {
+body, p, a, button {
   font-family: "Product Sans", Arial, sans-serif;
   font-size: var(--font-size--normal);
   line-height: var(--line-height--normal);
@@ -107,13 +107,13 @@ body {
 // Colors
 *********************/
 :root {
-  --color-main: #222;
+  --color-main: #11141b;
   --color-second: #FFFAF1;
 }
 
 .dark-mode {
   --color-main: #FFFAF1;
-  --color-second: #222;
+  --color-second: #11141b;
 }
 
 /*********************
@@ -136,8 +136,11 @@ body {
 // Buttons
 *********************/
 .btn {
+  cursor: pointer;
+  outline: none;
   display: inline-block;
   text-decoration: none;
+  background-color: transparent;
   -webkit-transition: all 300ms ease-in;
   -ms-transition: all 300ms ease-in;
   transition: all 300ms ease-in;
