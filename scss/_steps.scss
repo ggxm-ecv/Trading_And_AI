@@ -115,4 +115,12 @@
   height: 8px;
   background-color: var(--color-main);
   border-radius: 50%;
+  // animation: 3s ease-out infinite opacity3s;
+}
+
+@keyframes opacity3s {
+  from { opacity: 1; }
+  25%  { opacity: 0; }
+  75%  { opacity: 0; }
+  to   { opacity: 1; }
 }

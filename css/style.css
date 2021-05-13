@@ -136,6 +136,7 @@ body, p, a, button {
 // Buttons
 *********************/
 .btn {
+  overflow: hidden;
   cursor: pointer;
   outline: none;
   display: inline-block;
@@ -151,16 +152,10 @@ body, p, a, button {
   padding: 8px 24px 8px 16px;
   border: 1px solid var(--color-main);
   color: var(--color-second);
-}
-.btn-main::before {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--color-main);
+  background-image: linear-gradient(var(--color-main), var(--color-main));
+  background-size: 100% 100%;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
   -webkit-transition: all 300ms ease-in;
   -ms-transition: all 300ms ease-in;
   transition: all 300ms ease-in;
@@ -175,9 +170,7 @@ body, p, a, button {
 }
 .btn-main:hover {
   color: var(--color-main);
-}
-.btn-main:hover::before {
-  height: 0;
+  background-size: 100% 0;
 }
 
 /* Components */
@@ -494,6 +487,21 @@ main {
   height: 8px;
   background-color: var(--color-main);
   border-radius: 50%;
+}
+
+@keyframes opacity3s {
+  from {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
