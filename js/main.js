@@ -9,7 +9,6 @@ document.querySelector('[data-switch-color]').addEventListener('click', function
   document.querySelectorAll('.switch-color-mode__svg').forEach( elem => {
     elem.classList.toggle('active');
   });
-
 });
 
 
@@ -68,45 +67,65 @@ function handleWheel(e) {
 
 function update(index) {
 
-  // Update Main Nav style
-  if(index > 0) {
-    document.querySelector('.header__nav-up').classList.add('active');
-  } else {
-    document.querySelector('.header__nav-up').classList.remove('active');
-  }
-  if(index < (steps.length - 1)) {
-    document.querySelector('.header__nav-down').classList.add('active');
-  } else {
-    document.querySelector('.header__nav-down').classList.remove('active');
-  }
-
-  if(index < 0 || index >= steps.length) {
-    return;
-  }
-
-  // Upadte Steps style
-  steps[currentIndex].classList.remove('show');
-  steps[index].classList.add('show');
-
-  isAllowScroll = false;
-  isAllowClick = false;
-
-  var direction = index > currentIndex ? '-' : '+';
-  gsap.to([steps[currentIndex], steps[index]], 1, {
-    y: direction + '=100%',
-    ease: 'power2.out',
-    onComplete: function() {
-
-      isAllowScroll=true;
-      isAllowClick=true;
-
-      // Update Header Step number
-      document.querySelector('.header__step-current').innerHTML = `${index+1}`;
-
+  if (index >= 0 && index < steps.length) {
+    // Update Summary
+    const summaryItems = document.querySelectorAll('.header__summary-item');
+    summaryItems.forEach( (elem, elemIndex) => {
+      if (elemIndex < index) {
+        elem.classList.remove('active');
+        elem.classList.remove('passed');
+        elem.classList.add('passed');
+      } else if (elemIndex == index) {
+        elem.classList.remove('active');
+        elem.classList.remove('passed');
+        elem.classList.add('active');
+      } else if (elemIndex > index) {
+        elem.classList.remove('active');
+        elem.classList.remove('passed');
+      }
+    });
+    
+    // Update Main Nav style
+    if(index > 0) {
+      document.querySelector('.header__nav-up').classList.add('active');
+    } else {
+      document.querySelector('.header__nav-up').classList.remove('active');
     }
-  });
+    if(index < (steps.length - 1)) {
+      document.querySelector('.header__nav-down').classList.add('active');
+    } else {
+      document.querySelector('.header__nav-down').classList.remove('active');
+    }
 
-  currentIndex = index;
+    if(index < 0 || index >= steps.length) {
+      return;
+    }
+
+    // Upadte Steps style
+    steps[currentIndex].classList.remove('show');
+    steps[index].classList.add('show');
+
+    isAllowScroll = false;
+    isAllowClick = false;
+
+    var direction = index > currentIndex ? '-' : '+';
+    gsap.to([steps[currentIndex], steps[index]], 1, {
+      y: direction + '=100%',
+      ease: 'power2.out',
+      onComplete: function() {
+
+        isAllowScroll=true;
+        isAllowClick=true;
+
+        // Update Header Step number
+        document.querySelector('.header__step-current').innerHTML = `${index+1}`;
+
+      }
+    });
+
+    currentIndex = index;
+  }
+  
 }
 
 function getAverage(elements, number){

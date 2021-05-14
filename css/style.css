@@ -346,7 +346,7 @@ main {
 .header__summary-item.active {
   top: 50%;
 }
-.header__summary-item.old-active {
+.header__summary-item.passed {
   top: -150%;
 }
 
