@@ -71,6 +71,9 @@
 .step-1__content-wrap {
   width: 100%;
   max-width: 420px;
+  @include md_up {
+    max-width: 500px;
+  }
 }
 
 .step-1__content-txt {

@@ -18,6 +18,9 @@ body {
   @include md_up {
     padding: 16px;
   }
+  @include lg_up {
+    padding: 32px;
+  }
 }
 
 main {
@@ -32,6 +35,9 @@ main {
   border: 2px solid var(--color-main);
   @include md_up {
     grid-template-rows: 64px 1fr;
+  }
+  @include lg_up {
+    grid-template-rows: 80px 1fr;
   }
 }
 
