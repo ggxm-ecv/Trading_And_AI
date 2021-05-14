@@ -130,6 +130,20 @@ body, p, a, button {
 }
 */
 /*********************
+// Animation
+*********************/
+@keyframes opacity {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*********************
 // Containers
 *********************/
 /*********************
@@ -478,8 +492,20 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 64px;
+  height: 64px;
+}
+.step-1__pattern-item:nth-child(4n+1) .step-1__pattern-item-inner {
+  animation: 2s linear infinite opacity;
+}
+.step-1__pattern-item:nth-child(4n+2) .step-1__pattern-item-inner {
+  animation: 2.8s linear infinite opacity;
+}
+.step-1__pattern-item:nth-child(4n+3) .step-1__pattern-item-inner {
+  animation: 2.4s linear infinite opacity;
+}
+.step-1__pattern-item:nth-child(4n+4) .step-1__pattern-item-inner {
+  animation: 3.2s linear infinite opacity;
 }
 
 .step-1__pattern-item-inner {
@@ -487,21 +513,6 @@ main {
   height: 8px;
   background-color: var(--color-main);
   border-radius: 50%;
-}
-
-@keyframes opacity3s {
-  from {
-    opacity: 1;
-  }
-  25% {
-    opacity: 0;
-  }
-  75% {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -152,8 +152,8 @@ btnStepPrev.forEach((el) => {
 let patternWidth = document.querySelector('.step-1__pattern-wrap').offsetWidth;
 let patternHeight = document.querySelector('.step-1__pattern-wrap').offsetHeight;
 
-let itemsPerRow = Math.floor(patternWidth / 40);
-let itemsPerColumn = Math.floor(patternHeight / 40);
+let itemsPerRow = Math.floor(patternWidth / 64);
+let itemsPerColumn = Math.floor(patternHeight / 64);
 
 let nbItems = itemsPerRow * itemsPerColumn;
 
