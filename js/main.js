@@ -4,16 +4,16 @@
 
 /********* Switch Color Mode *********/
 
-document.querySelector('[data-switch-color]').addEventListener('click', function() {
+document.querySelector('[data-switch-color]').addEventListener('click', function () {
   document.body.classList.toggle('dark-mode');
-  document.querySelectorAll('.switch-color-mode__svg').forEach( elem => {
+  document.querySelectorAll('.switch-color-mode__svg').forEach(elem => {
     elem.classList.toggle('active');
   });
 });
 
 
 /*********************
-// Steps
+// Steps Navigation
 *********************/
 
 /********* On Scroll : Slider Steps (gsap) *********/
@@ -37,7 +37,7 @@ function handleWheel(e) {
   var delta = Math.max(-1, Math.min(1, value));
   var isVertical = Math.abs(e.wheelDeltaX) < Math.abs(e.wheelDelta);
 
-  if(wheelEvents.length > 149){
+  if (wheelEvents.length > 149) {
     wheelEvents.shift();
   }
 
@@ -46,7 +46,7 @@ function handleWheel(e) {
   var timeDiff = time - prevTime;
   prevTime = time;
 
-  if(timeDiff > 200){
+  if (timeDiff > 200) {
     wheelEvents = [];
   }
 
@@ -55,7 +55,7 @@ function handleWheel(e) {
     var averageMiddle = getAverage(wheelEvents, 70);
     var isAccelerating = averageEnd >= averageMiddle;
 
-    if(isVertical && isAccelerating) {
+    if (isVertical && isAccelerating) {
       if (delta < 0) {
         update(currentIndex + 1);
       } else {
@@ -70,7 +70,7 @@ function update(index) {
   if (index >= 0 && index < steps.length) {
     // Update Summary
     const summaryItems = document.querySelectorAll('.header__summary-item');
-    summaryItems.forEach( (elem, elemIndex) => {
+    summaryItems.forEach((elem, elemIndex) => {
       if (elemIndex < index) {
         elem.classList.remove('active');
         elem.classList.remove('passed');
@@ -84,20 +84,20 @@ function update(index) {
         elem.classList.remove('passed');
       }
     });
-    
+
     // Update Main Nav style
-    if(index > 0) {
+    if (index > 0) {
       document.querySelector('.header__nav-up').classList.add('active');
     } else {
       document.querySelector('.header__nav-up').classList.remove('active');
     }
-    if(index < (steps.length - 1)) {
+    if (index < (steps.length - 1)) {
       document.querySelector('.header__nav-down').classList.add('active');
     } else {
       document.querySelector('.header__nav-down').classList.remove('active');
     }
 
-    if(index < 0 || index >= steps.length) {
+    if (index < 0 || index >= steps.length) {
       return;
     }
 
@@ -112,31 +112,31 @@ function update(index) {
     gsap.to([steps[currentIndex], steps[index]], 1, {
       y: direction + '=100%',
       ease: 'power2.out',
-      onComplete: function() {
+      onComplete: function () {
 
-        isAllowScroll=true;
-        isAllowClick=true;
+        isAllowScroll = true;
+        isAllowClick = true;
 
         // Update Header Step number
-        document.querySelector('.header__step-current').innerHTML = `${index+1}`;
+        document.querySelector('.header__step-current').innerHTML = `${index + 1}`;
 
       }
     });
 
     currentIndex = index;
   }
-  
+
 }
 
-function getAverage(elements, number){
+function getAverage(elements, number) {
   var sum = 0;
   var lastElements = elements.slice(Math.max(elements.length - number, 1));
 
-  for(var i = 0; i < lastElements.length; i++){
+  for (var i = 0; i < lastElements.length; i++) {
     sum = sum + lastElements[i];
   }
 
-  return Math.ceil(sum/number);
+  return Math.ceil(sum / number);
 }
 
 
@@ -145,17 +145,18 @@ function getAverage(elements, number){
 // On Click Next
 const btnStepNext = document.querySelectorAll('[data-step-next]');
 btnStepNext.forEach((el) => {
-  el.addEventListener('click', function(event) {
+  el.addEventListener('click', function (event) {
     event.preventDefault();
     if (isAllowClick) {
       update(currentIndex + 1);
     }
   })
 });
+
 // On Click Prev
 const btnStepPrev = document.querySelectorAll('[data-step-prev]');
 btnStepPrev.forEach((el) => {
-  el.addEventListener('click', function(event) {
+  el.addEventListener('click', function (event) {
     event.preventDefault();
     if (isAllowClick) {
       update(currentIndex - 1);
@@ -163,6 +164,22 @@ btnStepPrev.forEach((el) => {
   })
 });
 
+
+/********* On Swipe : Slider steps (gsap) *********/
+
+const stepsWrapper = document.querySelector('.main-content');
+swipedetect(stepsWrapper, function (swipedir) {
+  if (isAllowClick && swipedir == 'up') {
+    update(currentIndex + 1);
+  } else if (isAllowClick && swipedir == 'down') {
+    update(currentIndex - 1);
+  }
+})
+
+
+/*********************
+// Steps Content
+*********************/
 
 /********* Step 1 : Experimental Pattern *********/
 
