@@ -4,37 +4,56 @@
 
 /* Define breakpoints */
 
-$screen-sm-min: 600px;
-$screen-md-min: 900px;
-$screen-lg-min: 1200px;
-
+$sm-break: 600px;
+$md-break: 900px;
+$lg-break: 1200px;
 
 /* Define media query */
 
-// Small devices
+// Small break
 @mixin sm_up {
-   @media (min-width: #{$screen-sm-min}) {
-       @content;
-   }
+	@media (min-width: #{$sm-break}) {
+		@content;
+	}
+}
+@mixin sm_down {
+	@media (max-width: #{$sm-break}) {
+		@content;
+	}
 }
 
-// Medium devices
+// Medium break
 @mixin md_up {
-   @media (min-width: #{$screen-md-min}) {
-       @content;
-   }
+	@media (min-width: #{$md-break}) {
+		@content;
+	}
+}
+@mixin md_down {
+	@media (max-width: #{$md-break}) {
+		@content;
+	}
 }
 
-// Large devices
+// Large break
 @mixin lg_up {
-   @media (min-width: #{$screen-lg-min}) {
-       @content;
-   }
+	@media (min-width: #{$lg-break}) {
+		@content;
+	}
+}
+@mixin lg_down {
+	@media (max-width: #{$lg-break}) {
+		@content;
+	}
 }
 
-// Custom devices
+// Custom break
 @mixin rwd_up($screen) {
-   @media (min-width: $screen+'px') {
-       @content;
-   }
+	@media (min-width: $screen+"px") {
+		@content;
+	}
+}
+@mixin rwd_down($screen) {
+	@media (max-width: $screen+"px") {
+		@content;
+	}
 }

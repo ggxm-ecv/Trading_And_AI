@@ -177,6 +177,38 @@ swipedetect(stepsWrapper, function (swipedir) {
 })
 
 
+/********* On Key Down : Slider steps (gsap) *********/
+
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+
+  if (isAllowClick) {
+
+    e = e || window.event;
+
+    if (e.keyCode == '38') {
+      // up arrow
+      update(currentIndex - 1);
+    }
+    else if (e.keyCode == '40') {
+      // down arrow
+      update(currentIndex + 1);
+    }
+    else if (e.keyCode == '37') {
+      // left arrow
+      update(currentIndex - 1);
+    }
+    else if (e.keyCode == '39') {
+      // right arrow
+      update(currentIndex + 1);
+    }
+
+  }
+
+}
+
+
 /*********************
 // Steps Content
 *********************/

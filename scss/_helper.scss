@@ -24,3 +24,15 @@
     #{$property}: $value;
   }
 }
+
+@include md_up {
+  .mobile-only {
+    display: none;
+  }
+}
+
+@include md_down { 
+  .desktop-only {
+    display: none;
+  }
+}
