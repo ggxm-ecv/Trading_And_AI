@@ -641,7 +641,7 @@ main {
 }
 @media (min-width: 900px) {
   .step-2 {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 1fr;
     grid-template-rows: 1fr;
   }
 }
@@ -651,6 +651,13 @@ main {
   justify-content: center;
   align-items: center;
   padding: 16px;
+  border-bottom: 1px solid var(--color-main);
+}
+@media (min-width: 900px) {
+  .step-2__content {
+    border-bottom: none;
+    border-right: 1px solid var(--color-main);
+  }
 }
 
 .step-2__summary {
@@ -713,6 +720,13 @@ main {
 
 .step-2__pattern {
   padding: 16px;
+  border-top: 1px solid var(--color-main);
+}
+@media (min-width: 900px) {
+  .step-2__pattern {
+    border-top: none;
+    border-left: 1px solid var(--color-main);
+  }
 }
 
 .step-2__pattern-wrap {
@@ -770,6 +784,67 @@ main {
   .step-2__pattern-item-inner {
     width: 64px;
     height: 64px;
+  }
+}
+
+/********* Step 3 *********/
+.step-3 {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+@media (min-width: 900px) {
+  .step-3 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+}
+
+.step-3__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid var(--color-main);
+  border-top: 1px solid var(--color-main);
+}
+@media (min-width: 900px) {
+  .step-3__content {
+    border-bottom: none;
+    border-right: 1px solid var(--color-main);
+    border-top: none;
+    border-left: 1px solid var(--color-main);
+  }
+}
+.step-3__content:first-child {
+  border-top: none;
+  border-left: none;
+}
+.step-3__content:last-child {
+  border-bottom: none;
+  border-right: none;
+}
+
+.step-3__content-list {
+  margin: 24px 0 0 0;
+  padding-left: 32px;
+}
+@media (min-width: 900px) {
+  .step-3__content-list {
+    margin: 40px 0 0 0;
+  }
+}
+
+.step-3__content-list-item {
+  padding: 8px 0;
+  font-size: var(--font-size--large);
+  line-height: var(--line-height--large);
+}
+@media (min-width: 900px) {
+  .step-3__content-list-item {
+    padding: 16px 0;
   }
 }
 

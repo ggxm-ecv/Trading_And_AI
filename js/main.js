@@ -18,6 +18,9 @@ document.querySelector('[data-switch-color]').addEventListener('click', function
 
 /********* On Scroll : Slider Steps (gsap) *********/
 
+// TODO : Fix bug to scroll with trackpage (2 step pass instead of 1)
+// TODO : Fix superposing steps with summary nav
+
 var currentIndex = 0;
 var isAllowScroll = true;
 var isAllowClick = true;
