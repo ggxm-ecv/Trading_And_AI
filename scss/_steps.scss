@@ -138,8 +138,10 @@
 .step-2 {
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-rows: 3fr 1fr;
   @include md_up {
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
   }
 }
 
@@ -147,6 +149,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 16px;
 }
 
 .step-2__summary {
@@ -159,9 +162,16 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 16px;
+  padding: 12px 0;
   font-size: var(--font-size--large);
   line-height: var(--line-height--large);
+  @include md_up {
+    padding: 16px;
+  }
+  &:hover .step-2__summary-item-nb {
+    color: var(--color-second);
+    background-size: 100% 100%;
+  }
 }
 
 .step-2__summary-item-nb {
@@ -175,6 +185,13 @@
   font-size: var(--font-size--small);
   line-height: var(--line-height--small);
   letter-spacing: 0;
+  background-image: linear-gradient(var(--color-main), var(--color-main));
+  background-size: 0 100%;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  @include prefix((
+    transition: all 150ms ease-in
+  ), webkit ms);
   @include md_up {
     width: 24px;
     height: 24px;
@@ -184,5 +201,59 @@
     width: 32px;
     height: 32px;
     margin-right: 16px;
+  }
+}
+
+.step-2__pattern {
+  padding: 16px;
+}
+
+.step-2__pattern-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  @include md_up {
+    flex-direction: column;
+  }
+}
+
+.step-2__pattern-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  height: 100%;
+  @include md_up {
+    width: 100%;
+    height: 60%;
+  }
+}
+
+.step-2__pattern-item-inner {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  @include prefix((
+    transform: translate(-50%,-50%)
+  ), webkit ms);
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-main);
+  animation: 2400ms ease-in-out infinite translate_left_right;
+  @include md_up {
+    top: 0;
+    left: 50%;
+    width: 48px;
+    height: 48px;
+    animation: 3600ms ease-in-out infinite translate_top_bottom;
+  }
+  @include lg_up {
+    width: 64px;
+    height: 64px;
   }
 }

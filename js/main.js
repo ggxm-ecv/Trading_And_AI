@@ -68,7 +68,7 @@ function handleWheel(e) {
 function update(index) {
 
   if (index >= 0 && index < steps.length) {
-    // Update Summary
+    // Update Header Summary
     const summaryItems = document.querySelectorAll('.header__summary-item');
     summaryItems.forEach((elem, elemIndex) => {
       if (elemIndex < index) {
@@ -207,6 +207,29 @@ function checkKey(e) {
   }
 
 }
+
+
+/********* Summary Nav : Slider steps (gsap) *********/
+
+const summaryLinks = document.querySelectorAll('.step-2__summary-item-link');
+summaryLinks.forEach((el) => {
+  el.addEventListener('click', function (event) {
+    
+    event.preventDefault();
+    const nbStepsToPass = Number(el.getAttribute("nb-steps-to-pass"));
+
+    update(currentIndex + nbStepsToPass);
+
+    steps.forEach((el, index) => {
+      if (index > 0 && index <= nbStepsToPass) {
+        gsap.to([steps[index]], 1, {
+          y: '-200%'
+        });
+      }
+    });
+    
+  })
+});
 
 
 /*********************
