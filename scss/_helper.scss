@@ -36,3 +36,8 @@
     display: none;
   }
 }
+
+.line-through {
+  text-decoration: line-through;
+  text-decoration-thickness: from-font;
+}
