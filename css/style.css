@@ -263,6 +263,7 @@ body, p, a, button {
 }
 
 .link {
+  cursor: pointer;
   display: block;
   text-decoration: none;
   color: var(--color-main);
@@ -985,6 +986,127 @@ main {
 @media (min-width: 1200px) {
   .step-6__content-item {
     padding: 56px 0;
+  }
+}
+
+/********* Step 7 *********/
+.step-7__content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  padding: 16px;
+}
+
+.step-7__content-item {
+  text-align: center;
+  padding: 24px 0;
+}
+@media (min-width: 600px) {
+  .step-7__content-item {
+    padding: 32px 0;
+  }
+}
+@media (min-width: 900px) {
+  .step-7__content-item {
+    padding: 40px 0;
+  }
+}
+@media (min-width: 1200px) {
+  .step-7__content-item {
+    padding: 56px 0;
+  }
+}
+
+/********* Step 8 *********/
+.step-8__content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  padding: 16px;
+}
+
+.step-8__content-item {
+  text-align: center;
+  padding: 24px 0;
+}
+@media (min-width: 600px) {
+  .step-8__content-item {
+    padding: 32px 0;
+  }
+}
+@media (min-width: 900px) {
+  .step-8__content-item {
+    padding: 40px 0;
+  }
+}
+@media (min-width: 1200px) {
+  .step-8__content-item {
+    padding: 56px 0;
+  }
+}
+
+.step-8__content-item-extra {
+  display: block;
+  margin-top: 8px;
+  font-size: var(--font-size--large);
+  line-height: var(--line-height--large);
+}
+@media (min-width: 900px) {
+  .step-8__content-item-extra {
+    margin-top: 16px;
+  }
+}
+
+/********* Step 9 *********/
+.step-9__content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+}
+
+.step-9__content-link {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 16px 8px;
+  border-bottom: 2px solid var(--color-main);
+  text-align: center;
+  background-image: linear-gradient(var(--color-main), var(--color-main));
+  background-size: 0 100%;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  -webkit-transition: all 400ms ease-in;
+  -ms-transition: all 400ms ease-in;
+  transition: all 400ms ease-in;
+}
+.step-9__content-link:first-child {
+  border-top: 2px solid var(--color-main);
+}
+.step-9__content-link:hover {
+  color: var(--color-second);
+  background-size: 100% 100%;
+}
+@media (min-width: 900px) {
+  .step-9__content-link {
+    padding: 24px 8px;
   }
 }
 
